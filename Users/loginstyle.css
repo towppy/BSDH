@@ -1,104 +1,164 @@
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+/* General page styling */
 body {
-    background: url('../Images/bglogin.jpg') no-repeat center center fixed;
-    background-size: cover;
+    font-family: Arial, sans-serif;
+    
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    position: relative;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.4); 
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: -1; /* Ensures the layer is behind the content */
+/* Login container wrapper */
+.login-wrapper {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    width: 700px; /* Increased width */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.5s ease-in-out;
+    align-items: center;
+    justify-content: center;
 }
 
-
-
-.logo-login {
-    text-align: center;
-    margin-bottom: 20px;
+/* Image container */
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
 }
 
-.logo-login img {
-    width: 100px; 
+.image-container img {
+    width: 100%;
     height: auto;
+    max-width: 100%;
+    border-radius: 15px; /* Softer look */
 }
 
+/* Vertical line */
+.divider {
+    width: 2px;
+    background: rgba(0, 0, 0, 0.1);
+    height: 80%;
+    margin: 0 20px;
+}
 
-
-/* Login Container */
+/* Login container (White Box) */
 .login-container {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 350px;
     text-align: center;
-    transition: transform 0.3s ease-in-out;
+    width: 50%;
+    background: transparent;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.login-container:hover {
-    transform: scale(1.02);
+/* Logo styling */
+.logo-login img {
+    width: 80px;
+    margin-bottom: 15px;
 }
 
-/* Heading */
+/* Header styling */
 h2 {
+    margin-bottom: 20px;
     color: #333;
-    margin-bottom: 1rem;
+    font-size: 22px;
 }
 
-/* Input Fields */
-input {
+/* Input fields with only bottom border */
+.input-container {
+    position: relative;
+    margin: 20px 0;
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px 0;
     font-size: 16px;
-    transition: border-color 0.3s;
-}
-
-input:focus {
-    border-color: #4A90E2;
+    border: none;
+    border-bottom: 2px solid black;
+    background: transparent;
     outline: none;
+    color: black;
 }
 
-/* Login Button */
-button {
+.input-container input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* Eye icon for password toggle */
+.password-container {
+    position: relative;
     width: 100%;
-    background: #4A90E2;
-    color: white;
+}
+
+.password-container input {
+    width: 100%;
     padding: 12px;
     border: none;
-    border-radius: 8px;
-    font-size: 18px;
+    border-bottom: 2px solid black; /* Make input just a line */
+    outline: none;
+    font-size: 16px;
+    background: transparent; /* Transparent background */
+}
+
+
+.password-container .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
-    transition: background 0.3s;
+    font-size: 18px;
+    color: #667eea;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover {
-    background: #357ABD;
+    background: #5a67d8;
+    transform: scale(1.05);
 }
 
-/* Error Message */
-.error {
-    color: red;
-    background: rgba(255, 0, 0, 0.1);
-    padding: 8px;
-    border-radius: 5px;
-    margin-bottom: 10px;
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.eye-icon {
+    width: 24px; /* Adjust size */
+    height: 24px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer; /* Make it clickable */
+    z-index: 10; /* Ensure it's above the input */
 }

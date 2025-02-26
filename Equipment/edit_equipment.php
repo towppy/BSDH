@@ -21,7 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $assigned_to = !empty($_POST['assigned_to']) ? $_POST['assigned_to'] : NULL;
 
     $update_query = "UPDATE equipment_inventory 
-                     SET equipment_name='$equipment_name', is_available='$is_available', status='$status', assigned_to='$assigned_to' 
+                     SET equipment_name='$equipment_name', is_available='$is_available', status='$status', assigned_to=" . 
+                     ($assigned_to ? "'$assigned_to'" : "NULL") . " 
                      WHERE equipment_id = $id";
 
     if (mysqli_query($conn, $update_query)) {
@@ -31,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,29 +39,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Equipment</title>
     <link rel="stylesheet" href="edit.css">
-
 </head>
 <body>
 
-    <h2>Edit Equipment</h2>
-    <form action="" method="POST">
-        <label for="equipment_name">Equipment Name:</label>
-        <input type="text" id="equipment_name" name="equipment_name" value="<?php echo $row['equipment_name']; ?>" required>
+    <div class="container-wrapper">
+        <!-- Header Section with Logo -->
+        <div class="header">
+            <img src="../Images/sdlogo.png"alt="BSDH Logo">
+            <h2>Edit Equipment</h2>
+        </div>
 
-        <label for="is_available">Availability:</label>
-        <select id="is_available" name="is_available" required>
-            <option value="1" <?php echo $row['is_available'] ? 'selected' : ''; ?>>Available</option>
-            <option value="0" <?php echo !$row['is_available'] ? 'selected' : ''; ?>>Not Available</option>
-        </select>
+        <form action="" method="POST">
+            <label for="equipment_name">Equipment Name:</label>
+            <input type="text" id="equipment_name" name="equipment_name" value="<?php echo $row['equipment_name']; ?>" required>
 
-        <label for="status">Status:</label>
-        <select id="status" name="status" required>
-            <option value="Active" <?php echo $row['status'] == 'Active' ? 'selected' : ''; ?>>Active</option>
-            <option value="For Replacement" <?php echo $row['status'] == 'For Replacement' ? 'selected' : ''; ?>>For Replacement</option>
-        </select>
+            <label for="is_available">Availability:</label>
+            <select id="is_available" name="is_available" required>
+                <option value="1" <?php echo $row['is_available'] ? 'selected' : ''; ?>>Available</option>
+                <option value="0" <?php echo !$row['is_available'] ? 'selected' : ''; ?>>Not Available</option>
+            </select>
 
-        <button type="submit">Update</button>
-    </form>
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="Active" <?php echo $row['status'] == 'Active' ? 'selected' : ''; ?>>Active</option>
+                <option value="For Replacement" <?php echo $row['status'] == 'For Replacement' ? 'selected' : ''; ?>>For Replacement</option>
+            </select>
+
+            <label for="assigned_to">Assigned To:</label>
+            <input type="text" id="assigned_to" name="assigned_to" value="<?php echo isset($row['assigned_to']) ? $row['assigned_to'] : ''; ?>">
+
+            <button type="submit">Update</button>
+        </form>
+    </div>
 
 </body>
 </html>

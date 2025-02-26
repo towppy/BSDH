@@ -1,9 +1,21 @@
 <?php
-session_start();
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Include database connection
 require '../systembsdh.php';
 
+// Ensure database connection exists
+if (!isset($conn) || !$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+
+$error = ""; // Initialize error message variable
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id_number = $_POST['id_number'];
+    $id_number = trim($_POST['id_number']);
     $password = $_POST['password'];
 
     // Prepare a secure query
@@ -15,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
         
+        // Verify password
         if (password_verify($password, $row['password'])) {
             if ($row['is_active']) {
                 $_SESSION['user_id'] = $row['user_id'];
@@ -22,13 +35,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // Redirect based on role or specific user
                 if ($row['id_number'] === 'masacc') {
-                    header("Location: ./masacc_db.php");
+                    header("Location: home.php");
+                    exit();
                 } elseif ($row['role'] === 'admin') {
-                    header("Location: adacc_db.php");
+                    header("Location: home.php");
+                    exit();
                 } else {
                     $error = "Access Denied. Contact an admin.";
                 }
-                exit();
             } else {
                 $error = "Your account is inactive. Contact support.";
             }
@@ -42,29 +56,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Log In</title>
     <link rel="stylesheet" href="loginstyle.css">
+    <style>
+        body {
+            background: url('../Images/bgl.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
-    <div class="login-container">
-    <div class="logo-login">
-    <img src="../Images/sdlogo.png" alt="Logo">
-</div>
-
-        <h2>Login</h2>
-        <?php if (!empty($error)) echo "<p class='error'>$error</p>"; ?>
-        <form method="POST">
-            <input type="text" name="id_number" placeholder="ID Number" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
+    <div class="login-wrapper">
+        <div class="login-container">
+            <div class="logo-login">
+                <img src="../Images/sdlogo.png" alt="Logo">
+            </div>
+            <h2>Log In</h2>
+            
+            <form method="POST">
+                <div class="input-container">
+                    <input type="text" name="id_number" placeholder="ID Number" required>
+                </div>
+                <div class="input-container password-container">
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                    <img src="../Images/eyeclose.png" id="togglePassword" class="eye-icon" onclick="togglePassword()">
+                </div>
+                
+                <button type="submit" class="login-btn">Log In</button>
+            </form>
+        </div>
     </div>
+   
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var passwordInput = document.getElementById("password");
+            var eyeIcon = document.getElementById("togglePassword");
+
+            eyeIcon.addEventListener("click", function () {
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    eyeIcon.src = "../Images/eyeopen.png";
+                } else {
+                    passwordInput.type = "password";
+                    eyeIcon.src = "../Images/eyeclose.png";
+                }
+            });
+        });
+    </script>
 </body>
 </html>

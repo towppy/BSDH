@@ -1,58 +1,102 @@
+/* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f9;
+    background: linear-gradient(to bottom, #d9ebff, #ffffff);
     color: #333;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 400px;
-}
-
-h2 {
+/* Main Container */
+.container-wrapper {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    width: 420px;
     text-align: center;
-    color: #2c3e50;
+    border: 2px solid #e0e6ed;
 }
 
+/* Header Section */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.header img {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+}
+
+.header h2 {
+    color: #2c3e50;
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Form Styles */
 form {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
-label {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
+/* Input Fields */
 input, select {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
     font-size: 16px;
+    color: #333;
+    background: #f8f9fa;
+    outline: none;
+    transition: all 0.3s ease-in-out;
 }
 
+input::placeholder {
+    color: #888;
+}
+
+input:focus, select:focus {
+    border-color: #007bff;
+    background: #ffffff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Button Styles */
 button {
-    margin-top: 20px;
-    background-color: #2980b9;
-    color: white;
-    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    padding: 14px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
     cursor: pointer;
-    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-    background-color: #1f6690;
+    background: #0056b3;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 450px) {
+    .container-wrapper {
+        width: 90%;
+        padding: 30px;
+    }
 }

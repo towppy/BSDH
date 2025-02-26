@@ -8,6 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 
 // Include database connection
 include_once '../systembsdh.php';
+include_once '../Users/header.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $equipment_name = $_POST['equipment_name'];
@@ -26,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,29 +37,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 
-    <h2>Add Equipment</h2>
-    <form action="" method="POST">
-        <label for="equipment_name">Equipment Name:</label>
-        <input type="text" id="equipment_name" name="equipment_name" required>
+    <div class="container">
+        <h2>Add Equipment</h2>
+        <form action="" method="POST">
+            <label for="equipment_name">Equipment Name:</label>
+            <input type="text" id="equipment_name" name="equipment_name" required>
 
-        <label for="is_available">Availability:</label>
-        <select id="is_available" name="is_available" required>
-            <option value="1">Available</option>
-            <option value="0">Not Available</option>
-        </select>
+            <label for="is_available">Availability:</label>
+            <select id="is_available" name="is_available" required>
+                <option value="1">Available</option>
+                <option value="0">Not Available</option>
+            </select>
 
-        <label for="status">Status:</label>
-        <select id="status" name="status" required>
-            <option value="Active">Active</option>
-            <option value="For Replacement">For Replacement</option>
-        </select>
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="Active">Active</option>
+                <option value="For Replacement">For Replacement</option>
+            </select>
 
-        <label for="assigned_to">Assigned To (Optional):</label>
-        <input type="text" id="assigned_to" name="assigned_to">
+            <label for="assigned_to">Assigned To (Optional):</label>
+            <input type="text" id="assigned_to" name="assigned_to">
 
-        <button type="submit">Add Equipment</button>
-        <button type="reset">Reset</button>
-    </form>
+            <button type="submit" class="submit-btn">Add Equipment</button>
+            <button type="reset" class="add-btn">Reset</button>
+        </form>
+    </div>
 
 </body>
 </html>
