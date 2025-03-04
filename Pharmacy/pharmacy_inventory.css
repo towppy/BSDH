@@ -1,0 +1,130 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Ensure header stays on top */
+header {
+    background-color: #004494;
+    width: 100%;
+    padding: 15px 20px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70px;
+    position: fixed; /* Fix it at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Header Container */
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+/* Push content down so it doesn't overlap with the header */
+.page-content {
+    margin-top: 90px; /* Adjust based on header height */
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 60px; /* Reduce margin to adjust header size */
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: #2980b9;
+    color: white;
+}
+
+td, th {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e3e3e3;
+}
+
+.availability.available {
+    color: green;
+    font-weight: bold;
+}
+
+.availability.not-available {
+    color: red;
+    font-weight: bold;
+}
+
+.edit-btn, .delete-btn {
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.edit-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    opacity: 0.8;
+}
+
+.add-btn {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: background 0.3s ease;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
