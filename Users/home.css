@@ -7,13 +7,31 @@ body {
     color: #333;
 }
 
+/* Ensure page is scrollable */
+html, body {
+    height: 100vh;
+    overflow: auto;
+}
+
 /* Header */
 header {
     background-color: #0056b3;
     padding: 15px 20px;
     color: white;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
+/* Separator Line */
+.separator {
+    height: 4px;
+    background-color: #ff9800;
+    width: 100%;
+}
+
+/* Header Container */
 .container {
     display: flex;
     justify-content: space-between;
@@ -55,12 +73,10 @@ nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    background-color: #fafafa; /* Change this to any color you want */
-
-
-    
-    height: 400px;
+    background-color: #fafafa;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -91,10 +107,47 @@ nav ul li a:hover {
     background-color: #e68900;
 }
 
+/* Information Section */
+.info-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 10%;
+    background-color: #fff;
+    gap: 50px;
+}
+
+.info-image {
+    flex: 1;
+    text-align: center;
+}
+
+.info-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.info-content {
+    flex: 1;
+}
+
+.info-content h2 {
+    font-size: 28px;
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+.info-content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
 /* Footer */
 footer {
     text-align: center;
     padding: 10px;
     background-color: #222;
     color: white;
+    width: 100%;
 }
