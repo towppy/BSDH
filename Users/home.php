@@ -43,12 +43,37 @@ if (isset($_SESSION['role'])) {
         </div>
     </header>
 
+    <!-- Separator -->
+    <div class="separator"></div>
+
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-       
             <h1>Welcome to BSDH</h1>
             <p>Your all-in-one solution for managing equipment, users, and more.</p>
             <a href="<?php echo $dashboardLink; ?>" class="btn">Go to Dashboard</a>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="info-section">
+        <div class="info-image">
+            <img src="../Images/features.png" alt="Features">
+        </div>
+        <div class="info-content">
+            <h2>Powerful Equipment Management</h2>
+            <p>Our system allows seamless tracking, monitoring, and maintenance of equipment. Ensure efficiency with real-time updates.</p>
+        </div>
+    </section>
+
+      <!-- Information Section -->
+      <section class="info-section">
+        <div class="info-image">
+            <img src="../Images/features.png" alt="Features">
+        </div>
+        <div class="info-content">
+            <h2>Powerful Equipment Management</h2>
+            <p>Our system allows seamless tracking, monitoring, and maintenance of equipment. Ensure efficiency with real-time updates.</p>
         </div>
     </section>
 
