@@ -1,0 +1,120 @@
+
+/* Root Variables */
+:root {
+    --primary-color: #2c3e50; /* Dark blue for professionalism */
+    --secondary-color: #1abc9c; /* Teal for accents */
+    --white-color: #ffffff;
+    --gray-color: #ecf0f1;
+    --border-radius: 12px;
+    --box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(255, 255, 255, 0.2) 0px 1px 3px;
+    --font-family: "Poppins", sans-serif;
+}
+
+/* Apply to the whole page */
+body {
+    font-family: var(--font-family);
+    background: var(--gray-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Glassmorphic Form Container */
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 400px;
+    text-align: center;
+}
+
+/* Title */
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-color);
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.3);
+    color: var(--primary-color);
+    outline: none;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+
+input:focus, select:focus {
+    border-color: var(--secondary-color);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Buttons */
+button, .btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+    margin-top: 15px;
+    text-align: center;
+}
+
+button {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+button:hover {
+    background: var(--secondary-color);
+}
+
+.btn {
+    display: block;
+    text-decoration: none;
+    background: var(--secondary-color);
+    color: var(--white-color);
+    text-align: center;
+}
+
+.btn:hover {
+    background: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+    
+    button, .btn {
+        width: 100%;
+    }
+}

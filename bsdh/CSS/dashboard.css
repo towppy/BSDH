@@ -1,0 +1,132 @@
+/* Root Variables */
+:root {
+    --primary-color: #2c3e50; /* Dark blue for professionalism */
+    --secondary-color: #1abc9c; /* Teal for accents */
+    --white-color: #ffffff;
+    --gray-color: #ecf0f1;
+    --border-radius: 12px;
+    --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--gray-color);
+}
+
+/* Glassmorphic Dashboard Container */
+.dashboard-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* Welcome Message */
+.welcome-message {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* User Info */
+.info-container {
+    background-color: var(--white-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 20px;
+}
+
+/* Flexbox for Both Tables */
+.table-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* Individual Data Tables */
+.data-container {
+    background-color: var(--white-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    flex: 1;
+    max-width: 48%; /* 50% width for two tables side-by-side */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-color);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+tr:hover {
+    background-color: rgba(44, 62, 80, 0.1);
+}
+
+/* Button Design */
+.button {
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.button.primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.button.primary:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Dropdown Search */
+.dropdown-search {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--border-radius);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .data-container {
+        max-width: 100%;
+    }
+}

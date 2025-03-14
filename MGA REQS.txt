@@ -1,0 +1,30 @@
+To fix:
+Dashboard ng Master(masterhome.php), Admin(admhome.php), at Doctor/Nurse (staffhome.php). 
+- Show Inventory overview (like yung table lang mismo, no functionality) Sa master ok na yung user management na nandun
+- User Management: pag inopen yung patient records tas pag pinindot yung (view record) na button dun sa mga nasa medical records(Dental, Consultation, Prenatal), dapat (Back to Pharmacy) hindi sa (Back to Consulmed).
+- Fix functionality ng (Update Record) sa Dental, Prenatal, Consultation.
+- Prevent duplicates sa patient records (sa may User Management -> Patients)
+- I-move to the right ng onti yung interface ng user management, natatakpan ng sidebar haha
+
+
+To add:
+Edit profile for all types of account (Bale add ng isa pang category na ‘profile’ sa sidebar.php)
+
+Security : Ensure na user is logged in among the categories (Master, Admin, Doctor, Nurse) before accessing system
+
+Schedule : Fix choose file (upload) look.
+
+Email: If user is approved -> User account is automatically created and if they have previous records ipapakita don sa patient_dashboard. 
+
+Log in page : dagdagan ng log in para sa patients. Bale pag pinindot yung log in, limang types ng account pede maglog in (Master / Admin / Doctor / Nurse / Patient) (ok na po yung lahat maliban sa patient)
+
+Sa may Reports: Assign ng doctor sa patient. Lagay ng drop down tas kuha ng doctor from database.
+
+
+
+ACCOUNTS: 
+ALL ACCOUNT PASSWORD IS 123
+ADM-2025001 - MASTER ACCOUNT
+ADM-2025002 (Plus the rest ng ADM) - ADMINS
+U - DOCTOR OR NURSE
+

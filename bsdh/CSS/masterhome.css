@@ -1,0 +1,270 @@
+        /* Root Variables */
+        :root {
+            --primary-color: #2c3e50; /* Dark blue for professionalism */
+            --secondary-color: #1abc9c; /* Teal for accents */
+            --white-color: #ffffff;
+            --gray-color: #ecf0f1;
+            --border-radius: 12px;
+            --box-shadow: rgba(255, 255, 255, 0.2) 0px 4px 6px, rgba(0, 0, 0, 0.1) 0px 1px 3px;
+            --font-family: "Poppins", sans-serif;
+        }
+
+        /* Apply to the whole page */
+        body {
+            font-family: var(--font-family);
+            background: var(--gray-color);
+            color: var(--primary-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Glassmorphic Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Buttons */
+        .button {
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .button.primary {
+            background: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        .button.primary:hover {
+            background: var(--secondary-color);
+        }
+
+        .button.secondary {
+            background: var(--secondary-color);
+            color: var(--white-color);
+        }
+
+        .button.secondary:hover {
+            background: var(--primary-color);
+        }
+
+        /* Flex Centering */
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        /* Forms */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        input, select {
+            padding: 10px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--primary-color);
+            font-size: 16px;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+        }
+
+        /* Tables (For Medical Equipment Inventory) */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background: var(--white-color);
+            padding: 20px;
+            border-radius: var(--border-radius);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-color);
+        }
+
+        th {
+            background: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        tr:hover {
+            background: rgba(44, 62, 80, 0.1);
+        }
+
+        /* Dropdown Search (For Equipment) */
+        .dropdown-search {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .table-container {
+                padding: 10px;
+            }
+
+            .button {
+                width: 100%;
+            }
+        }
+
+/* Dashboard Container */
+.dashboard-container {
+    max-width: 800px; /* Keep the reduced width */
+    margin: 20px 20px 20px auto; /* Align to the right and keep margin */
+    padding: 20px;
+    background-color: var(--white-color); /* Add background for a refined look */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for refinement */
+    overflow: auto; /* Enable scrolling if content overflows */
+    max-height: 600px; /* Limit the height for scrolling */
+}
+
+/* Welcome message */
+.welcome-message {
+    font-size: var(--font-size-l);
+    margin: 20px auto; 
+    text-align: left;
+    font-weight: bold; 
+    color: var(--primary-color); 
+    width: fit-content; 
+}
+
+
+/* User Info */
+.user-info p {
+    font-size: var(--font-size-n);
+    margin-bottom: 10px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    padding: 8px 12px; /* Reduce padding for more compactness */
+    text-align: left;
+    border-bottom: 1px solid var(--medium-gray-color);
+}
+
+table th {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+table tr:hover {
+    background-color: var(--light-pink-color);
+}
+
+
+
+
+/* Container for dashboard */
+.dashboard-container {
+    padding: 20px;
+}
+
+/* Styling for User Info */
+.info-container {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Flexbox to keep both tables side by side */
+.table-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* Data containers for User List & Pharmacy Inventory */
+.data-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 50%;
+}
+
+.data-container2 {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 50%;
+}
+
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table-container {
+        flex-direction: column;
+    }
+
+    .data-container {
+        max-width: 100%;
+    }
+}

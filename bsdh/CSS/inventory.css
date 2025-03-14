@@ -1,0 +1,145 @@
+/* Root Variables */
+:root {
+    --primary-color: #2c3e50; /* Dark blue for professionalism */
+    --secondary-color: #1abc9c; /* Teal for accents */
+    --white-color: #ffffff;
+    --gray-color: #ecf0f1;
+    --border-radius: 12px;
+    --box-shadow: rgba(255, 255, 255, 0.2) 0px 4px 6px, rgba(0, 0, 0, 0.1) 0px 1px 3px;
+    --font-family: "Poppins", sans-serif;
+}
+
+/* Apply to the whole page */
+body {
+    font-family: var(--font-family);
+    background: var(--gray-color);
+    color: var(--primary-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Glassmorphic Cards */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+/* Buttons */
+.button {
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button.primary {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+.button.primary:hover {
+    background: var(--secondary-color);
+}
+
+.button.secondary {
+    background: var(--secondary-color);
+    color: var(--white-color);
+}
+
+.button.secondary:hover {
+    background: var(--primary-color);
+}
+
+/* Flex Centering */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Section Styling */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* Forms */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+input, select {
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-color);
+    font-size: 16px;
+}
+
+input:focus, select:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+/* Tables (For Medical Equipment Inventory) */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: var(--white-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-color);
+}
+
+th {
+    background: var(--primary-color);
+    color: var(--white-color);
+}
+
+tr:hover {
+    background: rgba(44, 62, 80, 0.1);
+}
+
+/* Dropdown Search (For Equipment) */
+.dropdown-search {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .table-container {
+        padding: 10px;
+    }
+    
+    .button {
+        width: 100%;
+    }
+}
